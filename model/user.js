@@ -13,6 +13,10 @@ let userSchema = new mongo.Schema({
     clave: {
         type:String,
         required: [true, 'La clave es necesaria']
+    },
+    userType: {
+        type: String,
+        required: [true, 'Se necesita un tipo de usuario valido']
     }
 });
 
@@ -23,6 +27,7 @@ userSchema.methods.toJSON = function(){
     
     return userObject;
 }
+
 
 
 module.exports = mongo.model('User', userSchema);
